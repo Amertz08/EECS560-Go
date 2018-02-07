@@ -16,7 +16,8 @@ func NewLinkedList() LinkedList {
 func (l *LinkedList) Insert(val int) {
 	fmt.Printf("Inserting value %v\n", val)
 	if l.isEmpty() {
-		l.head = Node.NewNode(val)
+		newNode := Node.NewNode(val)
+		l.head = &newNode
 	} else {
 		tmp := l.head
 		l.insertHelper(tmp, val)
@@ -25,7 +26,8 @@ func (l *LinkedList) Insert(val int) {
 
 func (l *LinkedList) insertHelper(tmp *Node.Node, val int) {
 	if tmp.Next == nil {
-		tmp.Next = Node.NewNode(val)
+		newNode := Node.NewNode(val)
+		tmp.Next = &newNode
 		return
 	}
 	l.insertHelper(tmp.Next, val)
@@ -34,10 +36,10 @@ func (l *LinkedList) insertHelper(tmp *Node.Node, val int) {
 func (l *LinkedList) InsertFront(val int) {
 	newNode := Node.NewNode(val)
 	if l.isEmpty() {
-		l.head = newNode
+		l.head = &newNode
 	} else {
 		tmp := l.head
-		l.head = newNode
+		l.head = &newNode
 		l.head.Next = tmp
 	}
 }

@@ -5,6 +5,6 @@ type Node struct {
 	Next *Node
 }
 
-func NewNode(value int) *Node {
-	return &Node{value, nil}
+func NewNode(value int) Node {
+	return Node{value, nil}
 }
