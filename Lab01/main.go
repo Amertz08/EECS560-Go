@@ -19,7 +19,8 @@ func main() {
 	}
 
 	fileName := os.Args[1]
-	fullPath, _ := filepath.Abs(fileName)
+	fullPath, err := filepath.Abs(fileName)
+	check(err)
 
 	list := LinkedList.NewLinkedList()
 
