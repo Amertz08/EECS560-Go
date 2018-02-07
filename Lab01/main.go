@@ -20,19 +20,19 @@ func main() {
 		switch choice {
 		case 1:
 			value := getIntInput("Insert value: ")
-			list.insert(value)
+			list.Insert(value)
 		case 2:
 			value := getIntInput("Delete value: ")
-			list.erase(value)
+			list.Erase(value)
 		case 3:
 			value := getIntInput("Find value: ")
-			if list.find(value) {
+			if list.Find(value) {
 				fmt.Println("Value found")
 			} else {
 				fmt.Println("Vale not found")
 			}
 		case 4:
-			list.print()
+			list.Print()
 		case 5:
 			fmt.Println("Exiting...")
 		default:

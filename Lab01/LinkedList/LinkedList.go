@@ -13,7 +13,7 @@ func NewLinkedList() LinkedList {
 	return LinkedList{}
 }
 
-func (l *LinkedList) insert(val int) {
+func (l *LinkedList) Insert(val int) {
 	fmt.Printf("Inserting value %v\n", val)
 	if l.isEmpty() {
 		l.head = Node.NewNode(val)
@@ -24,18 +24,18 @@ func (l *LinkedList) insert(val int) {
 }
 
 func (l *LinkedList) insertHelper(tmp *Node.Node, val int) {
-	if tmp.next == nil {
-		tmp.next = Node.NewNode(val)
+	if tmp.Next == nil {
+		tmp.Next = Node.NewNode(val)
 		return
 	}
-	l.insertHelper(tmp.next, val)
+	l.insertHelper(tmp.Next, val)
 }
 
 func (l *LinkedList) isEmpty() bool {
 	return l.head == nil
 }
 
-func (l *LinkedList) print() {
+func (l *LinkedList) Print() {
 	fmt.Println("Printing list")
 	if l.isEmpty() {
 		fmt.Println("List is empty")
@@ -43,42 +43,42 @@ func (l *LinkedList) print() {
 	}
 	tmp := l.head
 	for tmp != nil {
-		fmt.Println(tmp.getValue())
-		tmp = tmp.next
+		fmt.Println(tmp.GetValue())
+		tmp = tmp.Next
 	}
 }
 
-func (l *LinkedList) find(val int) bool {
+func (l *LinkedList) Find(val int) bool {
 	tmp := l.head
 
 	for tmp != nil {
-		if tmp.value == val {
+		if tmp.Value == val {
 			return true
 		}
-		tmp = tmp.next
+		tmp = tmp.Next
 	}
 	return false
 }
 
 func (l *LinkedList) eraseHelper(tmp *Node.Node, val int) {
-	if tmp.next == nil {
+	if tmp.Next == nil {
 		fmt.Println("Value not in list")
-	} else if tmp.next.value == val {
-		tmp.next = tmp.next.next
+	} else if tmp.Next.Value == val {
+		tmp.Next = tmp.Next.Next
 	} else {
-		l.eraseHelper(tmp.next, val)
+		l.eraseHelper(tmp.Next, val)
 	}
 }
 
-func (l *LinkedList) erase(val int) {
+func (l *LinkedList) Erase(val int) {
 	fmt.Printf("Erasing value %v\n", val)
 	if l.isEmpty() {
 		fmt.Println("Empty list cannot erase value")
 		return
 	}
 
-	if l.head.value == val {
-		l.head = l.head.next
+	if l.head.Value == val {
+		l.head = l.head.Next
 		return
 	}
 
