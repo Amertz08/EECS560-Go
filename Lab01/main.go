@@ -9,12 +9,21 @@ import (
 	"strings"
 	"github.com/Amertz08/EECS560-go/Lab01/LinkedList"
 	"io"
+	"path/filepath"
 )
 
 func main() {
+	if len(os.Args) == 1 {
+		fmt.Println("Please provide an input file")
+		os.Exit(1)
+	}
+
+	fileName := os.Args[1]
+	fullPath, _ := filepath.Abs(fileName)
+
 	list := LinkedList.NewLinkedList()
 
-	f, err := os.Open("/Users/adammertz/go/src/github.com/Amertz08/EECS560-go/Lab01/data.txt")
+	f, err := os.Open(fullPath)
 	check(err)
 
 	reader := bufio.NewReader(f)
