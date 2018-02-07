@@ -8,10 +8,30 @@ import (
 	"strconv"
 	"strings"
 	"github.com/Amertz08/EECS560-go/Lab01/LinkedList"
+	"io"
 )
 
 func main() {
 	list := LinkedList.NewLinkedList()
+
+	f, err := os.Open("/Users/adammertz/go/src/github.com/Amertz08/EECS560-go/Lab01/data.txt")
+	check(err)
+
+	reader := bufio.NewReader(f)
+	data, err := reader.ReadString('\n')
+	if err != io.EOF {
+		panic(err)
+	}
+	f.Close()
+
+	vals := strings.Fields(data)
+
+	for _, val := range vals {
+		ival, err := strconv.Atoi(val)
+		check(err)
+		list.Insert(ival)
+	}
+
 
 	choice := 0
 	for choice != 5 {
@@ -64,4 +84,10 @@ func usage() int {
 		"5 - Exit\n")
 	choice := getIntInput("Select a choice: ")
 	return choice
+}
+
+func check(e error) {
+	if e != nil {
+		panic(e)
+	}
 }
