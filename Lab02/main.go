@@ -94,10 +94,10 @@ func getIntInput(prompt string) int {
 func usage() int {
 	fmt.Print(
 		"1 - Insert\n" +
-			"2 - Delete\n" +
-			"3 - Find\n" +
-			"4 - Print\n" +
-			"5 - Exit\n")
+		"2 - Delete\n" +
+		"3 - Find\n" +
+		"4 - Print\n" +
+		"5 - Exit\n")
 	choice := getIntInput("Select a choice: ")
 	return choice
 }
