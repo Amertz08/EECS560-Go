@@ -31,6 +31,17 @@ func (l *LinkedList) insertHelper(tmp *Node.Node, val int) {
 	l.insertHelper(tmp.Next, val)
 }
 
+func (l *LinkedList) InsertFront(val int) {
+	newNode := Node.NewNode(val)
+	if l.isEmpty() {
+		l.head = newNode
+	} else {
+		tmp := l.head
+		l.head = newNode
+		l.head.Next = tmp
+	}
+}
+
 func (l *LinkedList) isEmpty() bool {
 	return l.head == nil
 }
