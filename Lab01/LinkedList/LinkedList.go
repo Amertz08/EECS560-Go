@@ -47,7 +47,6 @@ func (l *LinkedList) isEmpty() bool {
 }
 
 func (l *LinkedList) Print() {
-	fmt.Println("Printing list")
 	if l.isEmpty() {
 		fmt.Println("List is empty")
 		return
