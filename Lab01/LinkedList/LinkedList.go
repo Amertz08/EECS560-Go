@@ -53,9 +53,10 @@ func (l *LinkedList) Print() {
 	}
 	tmp := l.head
 	for tmp != nil {
-		fmt.Println(tmp.GetValue())
+		fmt.Printf("%d ", tmp.Value)
 		tmp = tmp.Next
 	}
+	fmt.Println()
 }
 
 func (l *LinkedList) Find(val int) bool {
@@ -81,7 +82,6 @@ func (l *LinkedList) eraseHelper(tmp *Node.Node, val int) {
 }
 
 func (l *LinkedList) Erase(val int) {
-	fmt.Printf("Erasing value %v\n", val)
 	if l.isEmpty() {
 		fmt.Println("Empty list cannot erase value")
 		return
